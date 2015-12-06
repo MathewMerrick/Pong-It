@@ -13,12 +13,6 @@ namespace pongit {
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application {
-        protected override void OnStartup(StartupEventArgs e) {
-            base.OnStartup(e);
-            pongit.View.MainWindow window = new pongit.View.MainWindow();
-            GameViewModel VM = new GameViewModel();
-            window.DataContext = VM;
-            window.Show();
-        }
+
     }
 }

@@ -26,7 +26,7 @@ namespace pongit.Model {
             }
         }
 
-        #region INotifyPropertyChanged PaddleMember
+        #region INotifyPropertyChanged ScoreMember
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string name) {
             PropertyChangedEventHandler handler = PropertyChanged;

@@ -4,11 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pongit"
+        xmlns:viewModel="clr-namespace:pongit.ViewModel"
         mc:Ignorable="d"
+        KeyDown="MainWindow_OnKeyDown"
         Title="PongIt" Height="900" Width="1300" ResizeMode="NoResize" Background="#FF607D8B">
 
     <Canvas Name="MainCanvas" Height ="700" Width ="1100" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF154150">
         <!--Ball and Paddles -->
+       
         <Rectangle Name="LeftPaddle" Canvas.Left ="0" Canvas.Bottom ="{Binding leftPaddle.y}"  Fill="#FFFFFF" Height="140" Width="25"  VerticalAlignment="Center"></Rectangle>
         <Rectangle Name="RightPaddle" Canvas.Right ="0" Canvas.Bottom ="{Binding rightPaddle.y}" Fill="#FFFFFF" Height="140" Width="25"  VerticalAlignment="Center"></Rectangle>
         <Ellipse Name="Ball" Canvas.Left="{Binding ball.x}" Canvas.Bottom="{Binding ball.y}" Fill="Gray" Height="50" Stroke="Gray"  Width="50" />

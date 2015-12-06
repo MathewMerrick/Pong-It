@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using pongit.ViewModel;
 
 
 namespace pongit.View {
@@ -20,8 +21,17 @@ namespace pongit.View {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+
+        private GameViewModel VM;
+        
         public MainWindow() {
             InitializeComponent();
+            VM = new GameViewModel();
+            this.DataContext = VM;
+        }
+
+        private void MainWindow_OnKeyDown(object sender, KeyEventArgs e) {
+            VM.input(sender, e);
         }
     }
 }

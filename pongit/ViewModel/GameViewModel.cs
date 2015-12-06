@@ -15,7 +15,7 @@ namespace pongit.ViewModel{
         private Paddle _leftPaddle;
         private Paddle _rightPaddle;
         private Score _score;
-        private int paddleInt = 40;
+        private int paddleInt = 30;
 
         public GameViewModel() {
             _ball = new Ball {x = 525, y = 325};
@@ -53,8 +53,7 @@ namespace pongit.ViewModel{
         }
 
         public void input(object sender, KeyEventArgs e) {
-            switch (e.Key)
-            {
+            switch (e.Key) {
                 case Key.Down:
                     _rightPaddle.y = _rightPaddle.y - paddleInt;
                     break;

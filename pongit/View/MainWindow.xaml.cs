@@ -14,7 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
 
-namespace pongit {
+
+namespace pongit.View {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -22,7 +23,5 @@ namespace pongit {
         public MainWindow() {
             InitializeComponent();
         }
-
-
     }
 }

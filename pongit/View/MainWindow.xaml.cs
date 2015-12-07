@@ -43,14 +43,14 @@ namespace pongit.View {
 
         private void Client(object sender, RoutedEventArgs e) {
             if (VM != null) {
-                VM.IsLocal = false;
+                VM.mode = 1;
             }
             //throw new NotImplementedException();
         }
 
         private void Server(object sender, RoutedEventArgs e) {
             if (VM != null) {
-                VM.IsLocal = false;
+                VM.mode = 2;
             }
 
             //throw new NotImplementedException();
@@ -67,7 +67,7 @@ namespace pongit.View {
 
         private void SetLocal(object sender, RoutedEventArgs e) {
             if (VM != null) {
-                VM.IsLocal = true;
+                VM.mode = 0;
             }
         }
 
@@ -79,7 +79,7 @@ namespace pongit.View {
         // 4 = RightDown
         private void LeftUp_OnClickButton_OnClick(object sender, RoutedEventArgs e) {
             if (VM != null) {
-                if (VM.IsLocal == true) {
+                if ((VM.mode == 0) || (VM.mode == 1)) {
                     VM.TouchPaddle(1);
                 }
             }
@@ -87,7 +87,7 @@ namespace pongit.View {
 
         private void LeftDown_OnClickButton_OnClick(object sender, RoutedEventArgs e) {
             if (VM != null) {
-                if (VM.IsLocal == true) {
+                if ((VM.mode == 0) || (VM.mode == 1)) {
                     VM.TouchPaddle(2);
                 }
             }
@@ -95,13 +95,17 @@ namespace pongit.View {
 
         private void RightUp_OnClickButton_OnClick(object sender, RoutedEventArgs e) {
             if (VM != null) {
-                VM.TouchPaddle(3);
+                if ((VM.mode == 0) || (VM.mode == 2)) {
+                    VM.TouchPaddle(3);
+                }
             }
         }
 
         private void RightDown_OnClickButton_OnClick(object sender, RoutedEventArgs e) {
             if (VM != null) {
-                VM.TouchPaddle(4);
+                if ((VM.mode == 0) || (VM.mode == 2)) {
+                    VM.TouchPaddle(4);
+                }
             }
         }
 

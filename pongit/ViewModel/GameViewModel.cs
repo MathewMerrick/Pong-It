@@ -19,17 +19,22 @@ namespace pongit.ViewModel{
         private Score _score;
         private int _paddleInt = 45;
         private double _ballSpeed = 4;
-        private bool _local = true;
+        private int _mode = 0;
+
+        //Modes
+        // 0 = Local
+        // 1 = Client
+        // 2 = Server
 
         public GameViewModel() {
             _ball = new Ball {x = 525, y = 225};
                 //Left X: 0     Right X: 1050
                 //Min Y: 0      Max Y: 650
 
-            _leftPaddle = new Paddle {y = 175}; 
+            _leftPaddle = new Paddle {y = 180}; 
                 //0 is bottom, 600 is top
 
-            _rightPaddle = new Paddle {y = 175}; 
+            _rightPaddle = new Paddle {y = 180}; 
                 //0 is bottom, 600 is top
 
             _score = new Score {left = 0, right = 0};
@@ -102,9 +107,9 @@ namespace pongit.ViewModel{
             set { _score = value; }
         }
 
-        public bool IsLocal {
-            get { return _local;}
-            set { _local = value; }
+        public int mode {
+            get { return _mode;}
+            set { _mode = value; }
         }
 
         //Touch Controls
@@ -112,43 +117,61 @@ namespace pongit.ViewModel{
         // 2 = LeftDown
         // 3 = RightUp
         // 4 = RightDown
+
         public void TouchPaddle(int paddle) {
             switch (paddle) {
                 case 1:
-                    _leftPaddle.y += _paddleInt;
+                    if (_leftPaddle.y > 0) {
+                        leftPaddle.y = _leftPaddle.y - _paddleInt;
+                    }
                     break;
-
                 case 2:
-                    _leftPaddle.y -= _paddleInt;
+                    if (_leftPaddle.y < 360) {
+                        leftPaddle.y = _leftPaddle.y + _paddleInt;
+                    }
                     break;
 
                 case 3:
-                    _rightPaddle.y += _paddleInt;
+                    if (_rightPaddle.y > 0) {
+                        _rightPaddle.y -= _paddleInt;
+                    }
                     break;
-
                 case 4:
-                    _rightPaddle.y -= _paddleInt;
+                    if (_rightPaddle.y < 360) {
+                        rightPaddle.y += _paddleInt;
+                    }
                     break;
             }
         }
 
         public void input(object sender, KeyEventArgs e) {
-            switch (e.Key) {
-                case Key.Down:
-                    _rightPaddle.y -= _paddleInt;
-                    break;
-                case Key.Up:
-                    rightPaddle.y += _paddleInt;
-                    break;
+            if ((mode == 0) || (mode == 2)) {
+                switch (e.Key) {
+                    case Key.Down:
+                        if (_rightPaddle.y > 0) {
+                            _rightPaddle.y -= _paddleInt;
+                        }
+                        break;
+                    case Key.Up:
+                        if (_rightPaddle.y < 360) {
+                            rightPaddle.y += _paddleInt;
+                        }
+                        break;
+                }
             }
-            if (IsLocal == true) {
+
+            if ((mode == 0) || (mode == 1)) {
                 switch (e.Key) {
 
                     case Key.S:
-                        leftPaddle.y = _leftPaddle.y - _paddleInt;
+                        if (_leftPaddle.y > 0) {
+                            leftPaddle.y = _leftPaddle.y - _paddleInt;
+                        }
                         break;
                     case Key.W:
-                        leftPaddle.y = _leftPaddle.y + _paddleInt;
+                        if (_leftPaddle.y < 360) {
+                            leftPaddle.y = _leftPaddle.y + _paddleInt;
+                        }
                         break;
                 }
             }

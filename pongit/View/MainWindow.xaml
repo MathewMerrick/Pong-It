@@ -24,8 +24,17 @@
         <!-- Start -->
         <Button x:Name="JoinButton" Content="START" Click="JoinButton_OnClick" Canvas.Right="475" Canvas.Bottom="-90" Width="150" Height="50" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
         
+        <!-- touch input -->
+        <Button x:Name="RightUp" Content="▲" Click="RightUp_OnClickButton_OnClick" Canvas.Right="-75" Canvas.Top="50" Width="50" Height="150" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
+        <Button x:Name="RightDown" Content="▼" Click="RightDown_OnClickButton_OnClick" Canvas.Right="-75" Canvas.Bottom="50" Width="50" Height="150" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
+
+        <Button x:Name="LeftUp" Content="▲" Click="LeftUp_OnClickButton_OnClick" Canvas.Left="-75" Canvas.Top="50" Width="50" Height="150" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
+        <Button x:Name="LefttDown" Content="▼" Click="LeftDown_OnClickButton_OnClick" Canvas.Left="-75" Canvas.Bottom="50" Width="50" Height="150" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
+
+
         <!-- Networking -->
         <RadioButton x:Name="Local" Content="Local" 
+                     Checked="SetLocal"
                      Canvas.Left="-50" Canvas.Bottom="-40" 
                      FontSize="20" FontFamily="Agency FB" FontWeight="Bold"
                      Foreground="#FFFFFF"

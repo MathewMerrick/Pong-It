@@ -42,10 +42,17 @@ namespace pongit.View {
         //Networking stuff for later on:
 
         private void Client(object sender, RoutedEventArgs e) {
+            if (VM != null) {
+                VM.IsLocal = false;
+            }
             //throw new NotImplementedException();
         }
 
         private void Server(object sender, RoutedEventArgs e) {
+            if (VM != null) {
+                VM.IsLocal = false;
+            }
+
             //throw new NotImplementedException();
         }
 
@@ -56,6 +63,48 @@ namespace pongit.View {
             address.GotFocus -= RemoteAddress_OnGotFocus;
 
         }
+
+
+        private void SetLocal(object sender, RoutedEventArgs e) {
+            if (VM != null) {
+                VM.IsLocal = true;
+            }
+        }
+
+
+        //Touch Controls
+        // 1 = LeftUp
+        // 2 = LeftDown
+        // 3 = RightUp
+        // 4 = RightDown
+        private void LeftUp_OnClickButton_OnClick(object sender, RoutedEventArgs e) {
+            if (VM != null) {
+                if (VM.IsLocal == true) {
+                    VM.TouchPaddle(1);
+                }
+            }
+        }
+
+        private void LeftDown_OnClickButton_OnClick(object sender, RoutedEventArgs e) {
+            if (VM != null) {
+                if (VM.IsLocal == true) {
+                    VM.TouchPaddle(2);
+                }
+            }
+        }
+
+        private void RightUp_OnClickButton_OnClick(object sender, RoutedEventArgs e) {
+            if (VM != null) {
+                VM.TouchPaddle(3);
+            }
+        }
+
+        private void RightDown_OnClickButton_OnClick(object sender, RoutedEventArgs e) {
+            if (VM != null) {
+                VM.TouchPaddle(4);
+            }
+        }
+
 
 
     }

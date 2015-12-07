@@ -78,8 +78,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\BallModel.cs" />
+    <Compile Include="Model\ClientModel.cs" />
     <Compile Include="Model\PaddleModel.cs" />
     <Compile Include="Model\ScoreModel.cs" />
+    <Compile Include="Model\ServerModel.cs" />
     <Compile Include="ViewModel\GameViewModel.cs" />
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

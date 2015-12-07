@@ -19,6 +19,7 @@ namespace pongit.ViewModel{
         private Score _score;
         private int _paddleInt = 45;
         private double _ballSpeed = 4;
+        private bool _local = true;
 
         public GameViewModel() {
             _ball = new Ball {x = 525, y = 225};
@@ -76,6 +77,11 @@ namespace pongit.ViewModel{
             ball.x = 525;
         }
 
+        public int PaddleSpeed {
+            get { return _paddleInt; }
+            set { _paddleInt = value; }
+        }
+
         public Ball ball {
             get { return _ball; }
             set { _ball = value; }
@@ -96,21 +102,55 @@ namespace pongit.ViewModel{
             set { _score = value; }
         }
 
+        public bool IsLocal {
+            get { return _local;}
+            set { _local = value; }
+        }
+
+        //Touch Controls
+        // 1 = LeftUp
+        // 2 = LeftDown
+        // 3 = RightUp
+        // 4 = RightDown
+        public void TouchPaddle(int paddle) {
+            switch (paddle) {
+                case 1:
+                    _leftPaddle.y += _paddleInt;
+                    break;
+
+                case 2:
+                    _leftPaddle.y -= _paddleInt;
+                    break;
+
+                case 3:
+                    _rightPaddle.y += _paddleInt;
+                    break;
+
+                case 4:
+                    _rightPaddle.y -= _paddleInt;
+                    break;
+            }
+        }
+
         public void input(object sender, KeyEventArgs e) {
             switch (e.Key) {
                 case Key.Down:
-                    _rightPaddle.y = _rightPaddle.y - _paddleInt;
-                    Trace.WriteLine("test");
+                    _rightPaddle.y -= _paddleInt;
                     break;
                 case Key.Up:
-                    rightPaddle.y = rightPaddle.y + _paddleInt;
+                    rightPaddle.y += _paddleInt;
                     break;
-                case Key.S:
-                    leftPaddle.y = _leftPaddle.y - _paddleInt;
-                    break;
-                case Key.W:
-                    leftPaddle.y = _leftPaddle.y + _paddleInt;
-                    break;
+            }
+            if (IsLocal == true) {
+                switch (e.Key) {
+
+                    case Key.S:
+                        leftPaddle.y = _leftPaddle.y - _paddleInt;
+                        break;
+                    case Key.W:
+                        leftPaddle.y = _leftPaddle.y + _paddleInt;
+                        break;
+                }
             }
         }
 

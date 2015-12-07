@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>App Resources\racket.ico</ApplicationIcon>
+    <ApplicationIcon>App Resources\paddles.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -109,7 +109,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="App Resources\racket.ico" />
+    <Resource Include="App Resources\paddles.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

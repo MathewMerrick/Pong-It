@@ -9,19 +9,57 @@
         KeyDown="MainWindow_OnKeyDown"
         Title="PongIt" Height="900" Width="1300" ResizeMode="NoResize" Background="#FF607D8B">
 
-    <Canvas Name="MainCanvas" Height ="700" Width ="1100" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF154150">
+    <Canvas Name="MainCanvas" Height ="700" Width ="1100" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF154150" Margin="97,20,97,0">
         <!--Ball and Paddles -->
-       
-        <Rectangle Name="LeftPaddle" Canvas.Left ="0" Canvas.Bottom ="{Binding leftPaddle.y}"  Fill="#FFFFFF" Height="140" Width="25"  VerticalAlignment="Center"></Rectangle>
-        <Rectangle Name="RightPaddle" Canvas.Right ="0" Canvas.Bottom ="{Binding rightPaddle.y}" Fill="#FFFFFF" Height="140" Width="25"  VerticalAlignment="Center"></Rectangle>
-        <Ellipse Name="Ball" Canvas.Left="{Binding ball.x}" Canvas.Bottom="{Binding ball.y}" Fill="Gray" Height="50" Stroke="Gray"  Width="50" />
+
+        <Rectangle Name="LeftPaddle" Canvas.Left ="0" Canvas.Bottom ="{Binding leftPaddle.y}"  Fill="#3632db" Height="140" Width="25"  VerticalAlignment="Center"></Rectangle>
+        <Rectangle Name="RightPaddle" Canvas.Right ="0" Canvas.Bottom ="{Binding rightPaddle.y}" Fill="#bd3838" Height="140" Width="25"  VerticalAlignment="Center"></Rectangle>
+        <Ellipse Name="Ball" Canvas.Left="{Binding ball.x}" Canvas.Bottom="{Binding ball.y}" Fill="#FFFFFF" Height="50" Stroke="#FFFFFF"  Width="50" />
 
         <!-- Score -->
-        <Label Name="LeftScore" Canvas.Left="200" Canvas.Bottom="-150" Content="{Binding score.left}" HorizontalContentAlignment="Center" Height="150" Width="150" FontSize="96" FontFamily="Bauhaus 93" Foreground="#FFFFFF"></Label>
-        <Label Name="RightScore" Canvas.Right="200" Canvas.Bottom="-150" Content="{Binding score.right}" HorizontalContentAlignment="Center" Height="150" Width="150" FontSize="96" FontFamily="Bauhaus 93" Foreground="#FFFFFF"></Label>
+        <Label Name="LeftScore" Canvas.Left="200" Canvas.Bottom="-140" Content="{Binding score.left}" HorizontalContentAlignment="Center" Height="150" Width="150" FontSize="96" FontFamily="Bauhaus 93" Foreground="#FFFFFF"></Label>
+        <Label Name="RightScore" Canvas.Right="200" Canvas.Bottom="-140" Content="{Binding score.right}" HorizontalContentAlignment="Center" Height="150" Width="150" FontSize="96" FontFamily="Bauhaus 93" Foreground="#FFFFFF"></Label>
         
         <!-- Start -->
-        <Button x:Name="joinButton" Content="Start" Canvas.Right="475" Canvas.Bottom="-100" Width="150" Height="40" FontSize="32" FontFamily="Consolas" FontWeight="Bold" BorderThickness="0"/>
+        <Button x:Name="joinButton" Content="START" Canvas.Right="475" Canvas.Bottom="-90" Width="150" Height="50" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
+        
+        <!-- Networking -->
+        <RadioButton x:Name="Local" Content="Local" 
+                     Checked="LocalGame"
+                     Canvas.Left="-50" Canvas.Bottom="-40" 
+                     FontSize="20" FontFamily="Agency FB" FontWeight="Bold"
+                     Foreground="#FFFFFF"
+                     Height="20" VerticalAlignment="Center"
+                     IsChecked="True"/>
+
+        <RadioButton x:Name="Host" Content="Host" 
+                     Checked="Server"
+                     Canvas.Left="-50" Canvas.Bottom="-80" 
+                     FontSize="20" FontFamily="Agency FB" FontWeight="Bold"
+                     Foreground="#FFFFFF"
+                     Height="20" VerticalAlignment="Center"/>
+
+        <RadioButton x:Name="Join" Content="Join" 
+                     Checked="Client"
+                     Canvas.Left="-50" Canvas.Bottom="-120" 
+                     FontSize="20" FontFamily="Agency FB" FontWeight="Bold"
+                     Foreground="#FFFFFF"
+                     Height="20" VerticalAlignment="Center"/>
+
+        <TextBox x:Name="RemoteAddress" 
+                 Canvas.Bottom="-123"
+                 Canvas.Left="10"
+                 Height="22"
+                 Width="120"
+                 FontFamily="Agency FB"
+                 FontSize="15"
+                 FontWeight="Bold"
+                 Text="Enter IP Address"
+                 GotFocus="RemoteAddress_OnGotFocus"/>
+        
+        
+        
+
 
     </Canvas>
     

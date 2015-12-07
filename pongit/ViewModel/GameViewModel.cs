@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -15,7 +16,7 @@ namespace pongit.ViewModel{
         private Paddle _leftPaddle;
         private Paddle _rightPaddle;
         private Score _score;
-        private int paddleInt = 40;
+        private int _paddleInt = 45;
 
         public GameViewModel() {
             _ball = new Ball {x = 525, y = 325};
@@ -53,19 +54,19 @@ namespace pongit.ViewModel{
         }
 
         public void input(object sender, KeyEventArgs e) {
-            switch (e.Key)
-            {
+            switch (e.Key) {
                 case Key.Down:
-                    _rightPaddle.y = _rightPaddle.y - paddleInt;
+                    _rightPaddle.y = _rightPaddle.y - _paddleInt;
+                    Trace.WriteLine("test");
                     break;
                 case Key.Up:
-                    rightPaddle.y = rightPaddle.y + paddleInt;
+                    rightPaddle.y = rightPaddle.y + _paddleInt;
                     break;
                 case Key.S:
-                    leftPaddle.y = _leftPaddle.y - paddleInt;
+                    leftPaddle.y = _leftPaddle.y - _paddleInt;
                     break;
                 case Key.W:
-                    leftPaddle.y = _leftPaddle.y + paddleInt;
+                    leftPaddle.y = _leftPaddle.y + _paddleInt;
                     break;
             }
         }

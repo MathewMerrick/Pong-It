@@ -19,14 +19,14 @@ namespace pongit.ViewModel{
         private int _paddleInt = 45;
 
         public GameViewModel() {
-            _ball = new Ball {x = 525, y = 325};
+            _ball = new Ball {x = 525, y = 225};
                 //Left X: 0     Right X: 1050
                 //Min Y: 0      Max Y: 650
 
-            _leftPaddle = new Paddle {y = 275}; 
+            _leftPaddle = new Paddle {y = 175}; 
                 //0 is bottom, 600 is top
 
-            _rightPaddle = new Paddle {y = 275}; 
+            _rightPaddle = new Paddle {y = 175}; 
                 //0 is bottom, 600 is top
 
             _score = new Score {left = 0, right = 0};

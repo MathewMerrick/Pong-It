@@ -7,9 +7,9 @@
         xmlns:viewModel="clr-namespace:pongit.ViewModel"
         mc:Ignorable="d"
         KeyDown="MainWindow_OnKeyDown"
-        Title="PongIt" Height="900" Width="1300" ResizeMode="NoResize" Background="#FF607D8B">
+        Title="Pong-It" Height="700" Width="1300" ResizeMode="NoResize" Background="#FF607D8B">
 
-    <Canvas Name="MainCanvas" Height ="700" Width ="1100" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF154150" Margin="97,20,97,0">
+    <Canvas Name="MainCanvas" Height ="500" Width ="1100" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF154150" Margin="97,20,97,0">
         <!--Ball and Paddles -->
 
         <Rectangle Name="LeftPaddle" Canvas.Left ="0" Canvas.Bottom ="{Binding leftPaddle.y}"  Fill="#3632db" Height="140" Width="25"  VerticalAlignment="Center"></Rectangle>

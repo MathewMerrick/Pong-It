@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using System.Linq.Expressions;
 using pongit.ViewModel;
 
 
@@ -32,6 +33,29 @@ namespace pongit.View {
 
         private void MainWindow_OnKeyDown(object sender, KeyEventArgs e) {
             VM.input(sender, e);
+        }
+
+
+        //Networking stuff for later on:
+        private void LocalGame(object sender, RoutedEventArgs e) {
+            //This does not need to do anything
+        }
+
+
+        private void Client(object sender, RoutedEventArgs e) {
+            //throw new NotImplementedException();
+        }
+
+        private void Server(object sender, RoutedEventArgs e) {
+            //throw new NotImplementedException();
+        }
+
+        //Clears text box
+        private void RemoteAddress_OnGotFocus(object sender, RoutedEventArgs e) {
+            TextBox address = (TextBox) sender;
+            address.Text = String.Empty;
+            address.GotFocus -= RemoteAddress_OnGotFocus;
+
         }
     }
 }

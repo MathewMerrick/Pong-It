@@ -22,6 +22,44 @@
         
         <!-- Start -->
         <Button x:Name="joinButton" Content="START" Canvas.Right="475" Canvas.Bottom="-90" Width="150" Height="50" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
+        
+        <!-- Networking -->
+        <RadioButton x:Name="Local" Content="Local" 
+                     Checked="LocalGame"
+                     Canvas.Left="-50" Canvas.Bottom="-40" 
+                     FontSize="20" FontFamily="Agency FB" FontWeight="Bold"
+                     Foreground="#FFFFFF"
+                     Height="20" VerticalAlignment="Center"
+                     IsChecked="True"/>
+
+        <RadioButton x:Name="Host" Content="Host" 
+                     Checked="Server"
+                     Canvas.Left="-50" Canvas.Bottom="-80" 
+                     FontSize="20" FontFamily="Agency FB" FontWeight="Bold"
+                     Foreground="#FFFFFF"
+                     Height="20" VerticalAlignment="Center"/>
+
+        <RadioButton x:Name="Join" Content="Join" 
+                     Checked="Client"
+                     Canvas.Left="-50" Canvas.Bottom="-120" 
+                     FontSize="20" FontFamily="Agency FB" FontWeight="Bold"
+                     Foreground="#FFFFFF"
+                     Height="20" VerticalAlignment="Center"/>
+
+        <TextBox x:Name="RemoteAddress" 
+                 Canvas.Bottom="-123"
+                 Canvas.Left="10"
+                 Height="22"
+                 Width="120"
+                 FontFamily="Agency FB"
+                 FontSize="15"
+                 FontWeight="Bold"
+                 Text="Enter IP Address"
+                 GotFocus="RemoteAddress_OnGotFocus"/>
+        
+        
+        
+
 
     </Canvas>
     

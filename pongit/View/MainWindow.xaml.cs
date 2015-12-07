@@ -37,10 +37,6 @@ namespace pongit.View {
 
 
         //Networking stuff for later on:
-        private void LocalGame(object sender, RoutedEventArgs e) {
-            //This does not need to do anything
-        }
-
 
         private void Client(object sender, RoutedEventArgs e) {
             //throw new NotImplementedException();

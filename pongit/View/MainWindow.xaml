@@ -25,7 +25,6 @@
         
         <!-- Networking -->
         <RadioButton x:Name="Local" Content="Local" 
-                     Checked="LocalGame"
                      Canvas.Left="-50" Canvas.Bottom="-40" 
                      FontSize="20" FontFamily="Agency FB" FontWeight="Bold"
                      Foreground="#FFFFFF"

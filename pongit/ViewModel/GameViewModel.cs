@@ -33,6 +33,22 @@ namespace pongit.ViewModel{
                 //Set both scores to zero
         }
 
+
+
+        public void start() {
+          
+
+            //Game start goes here
+        }
+
+
+
+
+
+
+
+
+
         public Ball ball {
             get { return _ball; }
             set { _ball = value; }

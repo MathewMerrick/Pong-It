@@ -21,7 +21,7 @@
         <Label Name="RightScore" Canvas.Right="200" Canvas.Bottom="-140" Content="{Binding score.right}" HorizontalContentAlignment="Center" Height="150" Width="150" FontSize="96" FontFamily="Bauhaus 93" Foreground="#FFFFFF"></Label>
         
         <!-- Start -->
-        <Button x:Name="joinButton" Content="START" Canvas.Right="475" Canvas.Bottom="-90" Width="150" Height="50" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
+        <Button x:Name="JoinButton" Content="START" Click="JoinButton_OnClick" Canvas.Right="475" Canvas.Bottom="-90" Width="150" Height="50" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
         
         <!-- Networking -->
         <RadioButton x:Name="Local" Content="Local" 

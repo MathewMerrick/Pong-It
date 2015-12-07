@@ -35,6 +35,9 @@ namespace pongit.View {
             VM.input(sender, e);
         }
 
+        private void JoinButton_OnClick(object sender, RoutedEventArgs e) {
+            VM.start();
+        }
 
         //Networking stuff for later on:
 
@@ -53,5 +56,7 @@ namespace pongit.View {
             address.GotFocus -= RemoteAddress_OnGotFocus;
 
         }
+
+
     }
 }

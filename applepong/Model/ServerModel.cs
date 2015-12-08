@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace pongit.Model {
-    class ClientModel {
+namespace applepong.Model {
+    class ServerModel {
     }
 }

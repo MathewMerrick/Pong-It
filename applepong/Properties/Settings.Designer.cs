@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace pongit.Properties {
+namespace applepong.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

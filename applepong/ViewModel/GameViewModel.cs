@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Threading;
 using System.Windows.Input;
-using pongit.Model;
+using applepong.Model;
 
-namespace pongit.ViewModel{
+namespace applepong.ViewModel {
 
     class GameViewModel {
 

@@ -14,10 +14,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Linq.Expressions;
-using pongit.ViewModel;
+using applepong.ViewModel;
 
 
-namespace pongit.View {
+namespace applepong.View {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>

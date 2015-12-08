@@ -5,19 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-namespace pongit.Model{
+namespace applepong.Model {
 
-    class Paddle : INotifyPropertyChanged {
-        private int _y;
+    class Score : INotifyPropertyChanged {
+        private int _left;
+        private int _right;
 
-        public int y {
-            get { return _y; }
+        public int left {
+            get { return _left; }
             set {
-                _y = value;
-                OnPropertyChanged("y");
+                _left = value;
+                OnPropertyChanged("left");
             }
         }
-        #region INotifyPropertyChanged PaddleMember
+        public int right {
+            get { return _right; }
+            set {
+                _right = value;
+                OnPropertyChanged("right");
+            }
+        }
+
+        #region INotifyPropertyChanged ScoreMember
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string name) {
             PropertyChangedEventHandler handler = PropertyChanged;

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-namespace pongit.Model {
+namespace applepong.Model {
     
     class Ball : INotifyPropertyChanged {
         private double _x;

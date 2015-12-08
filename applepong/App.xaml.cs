@@ -6,9 +6,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.ComponentModel;
-using pongit.ViewModel;
+using applepong.ViewModel;
 
-namespace pongit {
+namespace applepong {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>

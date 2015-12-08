@@ -1,14 +1,14 @@
-﻿<Window x:Class="pongit.View.MainWindow"
+﻿<Window x:Class="applepong.View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:pongit"
-        xmlns:viewModel="clr-namespace:pongit.ViewModel"
+        xmlns:local="clr-namespace:applepong"
+        xmlns:viewModel="clr-namespace:applepong.ViewModel"
         mc:Ignorable="d"
         KeyDown="MainWindow_OnKeyDown"
         
-        Title="Pong-It" Height="700" Width="1300" ResizeMode="NoResize" Background="#FF607D8B">
+        Title="Apple Pong" Height="700" Width="1300" ResizeMode="NoResize" Background="#FF607D8B">
 
     <Canvas Name="MainCanvas" Height ="500" Width ="1100" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF154150" Margin="0,20,0,0">
         <!--Ball and Paddles -->

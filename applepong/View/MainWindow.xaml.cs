@@ -36,7 +36,7 @@ namespace applepong.View {
         }
 
         private void JoinButton_OnClick(object sender, RoutedEventArgs e) {
-            VM.start();
+            VM.Start();
         }
 
         //Networking stuff for later on:
@@ -44,16 +44,15 @@ namespace applepong.View {
         private void Client(object sender, RoutedEventArgs e) {
             if (VM != null) {
                 VM.mode = 1;
+                VM.GameReset();
             }
-            //throw new NotImplementedException();
         }
 
         private void Server(object sender, RoutedEventArgs e) {
             if (VM != null) {
                 VM.mode = 2;
+                VM.GameReset();
             }
-
-            //throw new NotImplementedException();
         }
 
         //Clears text box
@@ -68,6 +67,7 @@ namespace applepong.View {
         private void SetLocal(object sender, RoutedEventArgs e) {
             if (VM != null) {
                 VM.mode = 0;
+                VM.GameReset();
             }
         }
 
@@ -110,6 +110,12 @@ namespace applepong.View {
         }
 
 
+        private void ResetButton_OnClick(object sender, RoutedEventArgs e) {
+            VM.GameReset();
+        }
 
+        private void Help_OnClick(object sender, RoutedEventArgs e) {
+            MessageBox.Show("No", "Apple Pong - Help", MessageBoxButton.OK);
+        }
     }
 }

@@ -1,4 +1,4 @@
-# Pong-It
+# Apple=Pong
 Description:
   CS Project, Pong written in C#, WPF with the MVVM design pattern.
 

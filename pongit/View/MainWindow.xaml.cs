@@ -32,21 +32,27 @@ namespace pongit.View {
         }
 
         private void MainWindow_OnKeyDown(object sender, KeyEventArgs e) {
-            VM.input(sender, e);
+            VM.Input(sender, e);
         }
 
+        private void JoinButton_OnClick(object sender, RoutedEventArgs e) {
+            VM.start();
+        }
 
         //Networking stuff for later on:
-        private void LocalGame(object sender, RoutedEventArgs e) {
-            //This does not need to do anything
-        }
-
 
         private void Client(object sender, RoutedEventArgs e) {
+            if (VM != null) {
+                VM.mode = 1;
+            }
             //throw new NotImplementedException();
         }
 
         private void Server(object sender, RoutedEventArgs e) {
+            if (VM != null) {
+                VM.mode = 2;
+            }
+
             //throw new NotImplementedException();
         }
 
@@ -57,5 +63,53 @@ namespace pongit.View {
             address.GotFocus -= RemoteAddress_OnGotFocus;
 
         }
+
+
+        private void SetLocal(object sender, RoutedEventArgs e) {
+            if (VM != null) {
+                VM.mode = 0;
+            }
+        }
+
+
+        //Touch Controls
+        // 1 = LeftUp
+        // 2 = LeftDown
+        // 3 = RightUp
+        // 4 = RightDown
+        private void LeftUp_OnClickButton_OnClick(object sender, RoutedEventArgs e) {
+            if (VM != null) {
+                if ((VM.mode == 0) || (VM.mode == 1)) {
+                    VM.TouchPaddle(1);
+                }
+            }
+        }
+
+        private void LeftDown_OnClickButton_OnClick(object sender, RoutedEventArgs e) {
+            if (VM != null) {
+                if ((VM.mode == 0) || (VM.mode == 1)) {
+                    VM.TouchPaddle(2);
+                }
+            }
+        }
+
+        private void RightUp_OnClickButton_OnClick(object sender, RoutedEventArgs e) {
+            if (VM != null) {
+                if ((VM.mode == 0) || (VM.mode == 2)) {
+                    VM.TouchPaddle(3);
+                }
+            }
+        }
+
+        private void RightDown_OnClickButton_OnClick(object sender, RoutedEventArgs e) {
+            if (VM != null) {
+                if ((VM.mode == 0) || (VM.mode == 2)) {
+                    VM.TouchPaddle(4);
+                }
+            }
+        }
+
+
+
     }
 }

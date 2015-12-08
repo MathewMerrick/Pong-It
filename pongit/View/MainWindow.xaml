@@ -12,18 +12,20 @@
 
     <Canvas Name="MainCanvas" Height ="500" Width ="1100" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF154150" Margin="0,20,0,0">
         <!--Ball and Paddles -->
+        <Image x:Name="___Pong_It_component_uw_png" Height="400" Canvas.Left="80" Source="/App Resources/uw.png" Stretch="Fill" Canvas.Top="50" Width="400"/>
+        <Image x:Name="___Pong_It_component_wsu2_png" Height="348" Canvas.Left="652" Source="/App Resources/wsu.png" Stretch="Fill" Canvas.Top="66" Width="348"/>
 
-        <Rectangle Name="LeftPaddle" Canvas.Left ="0" Canvas.Bottom ="{Binding leftPaddle.y}"  Fill="#3632db" Height="140" Width="25"  VerticalAlignment="Center"></Rectangle>
-        <Rectangle Name="RightPaddle" Canvas.Right ="0" Canvas.Bottom ="{Binding rightPaddle.y}" Fill="#bd3838" Height="140" Width="25"  VerticalAlignment="Center"></Rectangle>
+        <Rectangle Name="LeftPaddle" Canvas.Left ="0" Canvas.Bottom ="{Binding leftPaddle.y}"  StrokeThickness="2" Stroke="#e2d2a3" Fill="#3b3e72" Height="140" Width="25"  VerticalAlignment="Center"></Rectangle>
+        <Rectangle Name="RightPaddle" Canvas.Right ="0" Canvas.Bottom ="{Binding rightPaddle.y}" StrokeThickness="2" Stroke="#FFFFFF" Fill="#981e32" Height="140" Width="25"  VerticalAlignment="Center"></Rectangle>
         <Ellipse Name="Ball" Canvas.Left="{Binding ball.x}" Canvas.Bottom="{Binding ball.y}" Fill="#FFFFFF" Height="50" Stroke="#FFFFFF"  Width="50" />
 
         <!-- Score -->
         <Label Name="LeftScore" Canvas.Left="200" Canvas.Bottom="-140" Content="{Binding score.left}" HorizontalContentAlignment="Center" Height="150" Width="150" FontSize="96" FontFamily="Bauhaus 93" Foreground="#FFFFFF"></Label>
         <Label Name="RightScore" Canvas.Right="200" Canvas.Bottom="-140" Content="{Binding score.right}" HorizontalContentAlignment="Center" Height="150" Width="150" FontSize="96" FontFamily="Bauhaus 93" Foreground="#FFFFFF"></Label>
-        
+
         <!-- Start -->
         <Button x:Name="JoinButton" Content="START" Click="JoinButton_OnClick" Canvas.Right="475" Canvas.Bottom="-90" Width="150" Height="50" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
-        
+
         <!-- touch input -->
         <Button x:Name="RightUp" Content="▲" Click="RightUp_OnClickButton_OnClick" Canvas.Right="-70" Canvas.Top="50" Width="50" Height="150" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
         <Button x:Name="RightDown" Content="▼" Click="RightDown_OnClickButton_OnClick" Canvas.Right="-70" Canvas.Bottom="50" Width="50" Height="150" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
@@ -65,16 +67,7 @@
                  FontWeight="Bold"
                  Text="Enter IP Address"
                  GotFocus="RemoteAddress_OnGotFocus"/>
-        
-        
-        
-
 
     </Canvas>
-    
-    
-    
-    
 
-    
 </Window>

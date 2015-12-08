@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>App Resources\paddles.ico</ApplicationIcon>
+    <ApplicationIcon>App Resources\paddle.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -126,9 +126,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="App Resources\paddles.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
@@ -139,6 +136,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App Resources\paddle.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App Resources\uw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App Resources\wsu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

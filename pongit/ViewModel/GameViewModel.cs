@@ -20,7 +20,9 @@ namespace pongit.ViewModel{
         private int _paddleInt = 45;
         private double _ballSpeed = 4;
         private int _mode = 0;
-
+       
+        int [] slope = new int[2]; //0 is x, 1 is y
+        
         //Modes
         // 0 = Local
         // 1 = Client
@@ -39,9 +41,10 @@ namespace pongit.ViewModel{
 
             _score = new Score {left = 0, right = 0};
                 //Set both scores to zero
+
+            slope[0] = 1;
+            slope[1] = 2;
         }
-
-
 
         public void start() {
             DispatcherTimer timer = new DispatcherTimer();
@@ -53,25 +56,35 @@ namespace pongit.ViewModel{
 
 
         private void _movingBall(object sender, EventArgs e){
-            if(_ball.y <= 0){
-                //logic for bounce
+
+            if (((_ball.x >= 1050) || (_ball.x <= 0))) {
+                slope[0] *= -1;
+
             }
 
-            if(_ball.y >= 475){
-               //logic for bounce
+            if (((_ball.y >= 450) || (_ball.y <= 0)) ) {
+                slope[1] *= -1;
+                //logic for bounce
             }
 
             //logic for hitpaddles
 
-            _ball.y += _ballSpeed;
-            _ball.x += _ballSpeed;
+            _ball.x += (slope[0] * _ballSpeed);
+            _ball.y += (slope[1] * _ballSpeed);
 
-            if(_ball.x <= 5){
-                score.left++;
-                reset();
+            if(_ball.x <= 0){
+                if (leftPaddle.y < (ball.y - 100)) {
+                    slope[0] *= -1;
+                    slope[1] *= -1;
+                }
+                else {
+                    score.right++;
+                    reset();
+                }
+
             }
-            if(_ball.y >= 1075){
-                score.right++;
+            if(_ball.x >= 1050){
+                score.left++;
                 reset();
             }
 
@@ -79,7 +92,11 @@ namespace pongit.ViewModel{
 
         public void reset(){
             _ball.y = 225;
-            ball.x = 525;
+            _ball.x = 525;
+            slope[0] *= -1;
+            slope[1] *= -1;
+            _leftPaddle.y = 180;
+            _rightPaddle.y = 180;
         }
 
         public int PaddleSpeed {
@@ -112,39 +129,39 @@ namespace pongit.ViewModel{
             set { _mode = value; }
         }
 
+
         //Touch Controls
         // 1 = LeftUp
         // 2 = LeftDown
         // 3 = RightUp
         // 4 = RightDown
-
         public void TouchPaddle(int paddle) {
             switch (paddle) {
                 case 1:
-                    if (_leftPaddle.y > 0) {
-                        leftPaddle.y = _leftPaddle.y - _paddleInt;
+                    if (_leftPaddle.y < 360) {
+                        leftPaddle.y +=  _paddleInt;
                     }
                     break;
                 case 2:
-                    if (_leftPaddle.y < 360) {
-                        leftPaddle.y = _leftPaddle.y + _paddleInt;
+                    if (_leftPaddle.y > 0) {
+                        leftPaddle.y -= _paddleInt;
+                    }
+                    break;
+                case 3:
+                    if (_rightPaddle.y < 360) {
+                        rightPaddle.y += _paddleInt;
                     }
                     break;
 
-                case 3:
+                case 4:
                     if (_rightPaddle.y > 0) {
                         _rightPaddle.y -= _paddleInt;
-                    }
-                    break;
-                case 4:
-                    if (_rightPaddle.y < 360) {
-                        rightPaddle.y += _paddleInt;
                     }
                     break;
             }
         }
 
-        public void input(object sender, KeyEventArgs e) {
+        public void Input(object sender, KeyEventArgs e) {
             if ((mode == 0) || (mode == 2)) {
                 switch (e.Key) {
                     case Key.Down:
@@ -176,6 +193,5 @@ namespace pongit.ViewModel{
                 }
             }
         }
-
     }
 }

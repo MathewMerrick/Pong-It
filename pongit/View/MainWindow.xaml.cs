@@ -32,7 +32,7 @@ namespace pongit.View {
         }
 
         private void MainWindow_OnKeyDown(object sender, KeyEventArgs e) {
-            VM.input(sender, e);
+            VM.Input(sender, e);
         }
 
         private void JoinButton_OnClick(object sender, RoutedEventArgs e) {

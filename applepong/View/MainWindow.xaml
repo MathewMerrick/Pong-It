@@ -44,11 +44,10 @@
             <Button x:Name="LefttDown" Content="▼" Click="LeftDown_OnClickButton_OnClick" Canvas.Left="-70" Canvas.Bottom="50" Width="50" Height="150" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
 
             <!-- TEST -->
-            <Label Name="LeftPaddleY" Canvas.Right="0" Canvas.Bottom="50" Content="{Binding rightPaddle.y}" HorizontalContentAlignment="Center" Foreground="#FFFFFF"></Label>
-            <Label Name="BallX" Canvas.Right="0" Canvas.Bottom="40" Content="{Binding ball.x}" HorizontalContentAlignment="Center" Foreground="#FFFFFF"></Label>
-            <Label Name="BallY" Canvas.Right="0" Canvas.Bottom="30" Content="{Binding ball.y}" HorizontalContentAlignment="Center" Foreground="#FFFFFF"></Label>
-            <Label Name="SlopeX" Canvas.Right="0" Canvas.Bottom="20" Content="{Binding slope[0]}" HorizontalContentAlignment="Center" Foreground="#FFFFFF"></Label>
-            <Label Name="SlopeY" Canvas.Right="0" Canvas.Bottom="10" Content="{Binding slope[1]}" HorizontalContentAlignment="Center" Foreground="#FFFFFF"></Label>
+
+            <Label Name="BallX" Canvas.Right="0" Canvas.Bottom="10" Content="{Binding ball.x}" HorizontalContentAlignment="Center" Foreground="#FFFFFF"></Label>
+            <Label Name="BallY" Canvas.Right="0" Canvas.Bottom="00" Content="{Binding ball.y}" HorizontalContentAlignment="Center" Foreground="#FFFFFF"></Label>
+
 
             <!-- Networking -->
             <RadioButton x:Name="Local" Content="Local" 
@@ -81,8 +80,10 @@
                  FontFamily="Agency FB"
                  FontSize="15"
                  FontWeight="Bold"
-                 Text="Enter IP Address"
-                 GotFocus="RemoteAddress_OnGotFocus"/>
+                 Text="{Binding ipAddress}"
+                 GotFocus="RemoteAddress_OnGotFocus"
+                 />
+            
 
 
         </Canvas>

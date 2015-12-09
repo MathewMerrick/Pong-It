@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Threading;
 using System.Windows.Input;
 using applepong.Model;
@@ -12,17 +13,22 @@ namespace applepong.ViewModel {
         private Paddle _rightPaddle;
         private Score _score;
         private int _paddleInt = 45;
-        private double _ballSpeed = 4.5;
-        private int _mode = 0;
+        private const double _ballSpeed = 4.5;
+        private int _mode = 0; //Client = 1, Server = 2;
+        private string _ipAddress;
        
         private double [] _slope = new double[2]; //0 is x, 1 is y
-        private DispatcherTimer timer = new DispatcherTimer();
+        private readonly DispatcherTimer timer = new DispatcherTimer();
+
+        private SynchronousSocketListener _server = new SynchronousSocketListener();
+        private SynchronousSocketClient _client = new SynchronousSocketClient();
+
+        private Stopwatch stopwatch = new Stopwatch();
 
         //Modes
         // 0 = Local
         // 1 = Client
         // 2 = Server
-
 
         public GameViewModel() {
             ball = new Ball {x = 525, y = 225};
@@ -42,9 +48,20 @@ namespace applepong.ViewModel {
 
             slope[0] = -1;
             slope[1] = 1;
+
+
         }
         
         public void Start() {
+            if (mode == 1) {
+                _client.StartClient(ipAddress);
+                _client.Receive(rightPaddle.y, ball.x, ball.y);
+            }
+            if (mode == 2) {
+                _server.StartListening();
+
+            }
+            stopwatch.Start();
             timer.Start();
             timer.Tick += (MovingBall);
         }
@@ -59,42 +76,74 @@ namespace applepong.ViewModel {
 
 
         private void MovingBall(object sender, EventArgs e){
-
-            if (((_ball.x >= 1050) || (_ball.x <= 0))) {
-                slope[0] *= -1;
-            }
-
-            if (((_ball.y >= 450) || (_ball.y <= 0)) ) {
-                slope[1] *= -1;
-                //logic for bounce
-            }
-
-            //logic for hitpaddles
-
-            _ball.x += (slope[0] * _ballSpeed);
-            _ball.y += (slope[1] * _ballSpeed);
-
-            if(_ball.x <= 20){
-                if ((ball.y >= _leftPaddle.y-25) && (ball.y <= (_leftPaddle.y + 125))){
-                    slope[1]++;
+            if ((mode == 2) || (mode == 0)) {
+                    if (((_ball.x >= 1050) || (_ball.x <= 0))) {
                     slope[0] *= -1;
                 }
-                else {
-                    score.right++;
-                    Reset();
+
+                if (((_ball.y >= 450) || (_ball.y <= 0)) ) {
+                    slope[1] *= -1;
+                    //logic for bounce
+                }
+
+                //logic for hitpaddles
+
+                _ball.x += (slope[0] * _ballSpeed);
+                _ball.y += (slope[1] * _ballSpeed);
+
+                if(_ball.x <= 20){
+                    if ((ball.y >= _leftPaddle.y-25) && (ball.y <= (_leftPaddle.y + 125))){
+                        slope[1]++;
+                        slope[0] *= -1;
+                    }
+                    else {
+                        score.right++;
+                        Reset();
+                    }
+
+                }
+                if (_ball.x >= 1040) {
+                    if ((ball.y >= _rightPaddle.y-25) && (ball.y <= (_rightPaddle.y + 125))) {
+                        slope[1]++;
+                        slope[0] *= -1;
+                    }
+                    else {
+                        score.left++;
+                        Reset();
+                    }
+                }
+                if (mode == 2) {
+                    //Server
+                   // while ((stopwatch.ElapsedMilliseconds%3) < 3) {
+                        
+                    //}
+                    //while ((stopwatch.ElapsedMilliseconds%3) < 3) {
+                        _server.Send(rightPaddle.y, ball.x, ball.y, score.left, score.right);
+                    leftPaddle.y = _server.yPaddle;
+                    // }
                 }
 
             }
-            if (_ball.x >= 1040) {
-                if ((ball.y >= _rightPaddle.y-25) && (ball.y <= (_rightPaddle.y + 125))) {
-                    slope[1]++;
-                    slope[0] *= -1;
-                }
-                else {
-                    score.left++;
-                    Reset();
-                }
+            if (mode == 1) { //Client
+                //while ((stopwatch.ElapsedMilliseconds % 3) < 3) {
+                    _client.Send(leftPaddle.y.ToString());
+                //}
+               // while ((stopwatch.ElapsedMilliseconds % 3) < 3) {
+
+                rightPaddle.y = _client.yPaddle;
+                ball.y = _client.yBall;
+                ball.x = _client.xBall;
+                score.left = _client.leftScore;
+                score.right = _client.rightScore;
+
+                //_client.Receive(rightPaddle.y, ball.x, ball.y);
+                // }
+
             }
+
+
+
+
         }
 
         public void Reset(){
@@ -141,6 +190,10 @@ namespace applepong.ViewModel {
             set { _slope = value; }
         }
 
+        public string ipAddress {
+            get { return _ipAddress; }
+            set { _ipAddress = value; }
+        }
 
         //Touch Controls
         // 1 = LeftUp

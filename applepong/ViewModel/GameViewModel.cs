@@ -125,13 +125,7 @@ namespace applepong.ViewModel {
                     leftPaddle.y = _server.yPaddle;
                     // }
                 }
-                if (score.left == 11) {
-                    GameReset();
-                }
 
-                if (score.right == 11) {
-                    GameReset();
-                }
 
             }
             if (mode == 1) { //Client
@@ -146,11 +140,19 @@ namespace applepong.ViewModel {
                 score.left = _client.leftScore;
                 score.right = _client.rightScore;
 
+
+
                 //_client.Receive(rightPaddle.y, ball.x, ball.y);
                 // }
 
             }
+            if (score.left == 11) {
+                GameReset();
+            }
 
+            if (score.right == 11) {
+                GameReset();
+            }
 
 
 

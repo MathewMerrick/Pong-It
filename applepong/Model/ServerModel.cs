@@ -22,7 +22,7 @@ namespace applepong.Model {
             
 
             IPHostEntry ipHostInfo = Dns.Resolve(Dns.GetHostName());
-            IPAddress ipAddress = ipHostInfo.AddressList[1];
+            IPAddress ipAddress = ipHostInfo.AddressList[0];
 
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 11000);
 
@@ -73,8 +73,6 @@ namespace applepong.Model {
                 OnPropertyChanged("yPaddle");
             }
         }
-
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string name) {

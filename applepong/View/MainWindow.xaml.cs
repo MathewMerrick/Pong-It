@@ -115,7 +115,7 @@ namespace applepong.View {
         }
 
         private void Help_OnClick(object sender, RoutedEventArgs e) {
-            MessageBox.Show("No", "Apple Pong - Help", MessageBoxButton.OK);
+            MessageBox.Show("Apple Pong version derived from the famous game Pong!\nGroup Members: Mathew Merrick, Jomar Dimaculangan, Josh Meyer, Michael Garten.\n\nHow to play: Cougars can move their paddles by pressing the up and down keys and Huskies can move theirs by pressing W and S.\n\nObjective: Players use the paddles to hit a ball back and forth to gain points. First to eleven points win.", "Apple Pong - Help", MessageBoxButton.OK);
         }
     }
 }

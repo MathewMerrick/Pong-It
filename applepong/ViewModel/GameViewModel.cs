@@ -69,6 +69,9 @@ namespace applepong.ViewModel {
             Reset();
             score.left = 0;
             score.right = 0;
+            timer.Tick -= MovingBall;
+            timer.Tick -= MovingBall;
+            timer.Tick -= MovingBall;
             timer.Stop();
             
 
@@ -121,6 +124,13 @@ namespace applepong.ViewModel {
                         _server.Send(rightPaddle.y, ball.x, ball.y, score.left, score.right);
                     leftPaddle.y = _server.yPaddle;
                     // }
+                }
+                if (score.left == 11) {
+                    GameReset();
+                }
+
+                if (score.right == 11) {
+                    GameReset();
                 }
 
             }

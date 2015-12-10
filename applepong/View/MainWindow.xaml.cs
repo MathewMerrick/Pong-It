@@ -109,13 +109,20 @@ namespace applepong.View {
             }
         }
 
-
         private void ResetButton_OnClick(object sender, RoutedEventArgs e) {
             VM.GameReset();
         }
 
         private void Help_OnClick(object sender, RoutedEventArgs e) {
-            MessageBox.Show("Apple Pong version derived from the famous game Pong!\nGroup Members: Mathew Merrick, Jomar Dimaculangan, Josh Meyer, Michael Garten.\n\nHow to play: Cougars can move their paddles by pressing the up and down keys and Huskies can move theirs by pressing W and S.\n\nObjective: Players use the paddles to hit a ball back and forth to gain points. First to eleven points win.", "Apple Pong - Help", MessageBoxButton.OK);
+            MessageBox.Show("Apple Pong version derived from the famous game Pong!\n" +
+                            "Group Members: Mathew Merrick, Jomar Dimaculangan, Josh Meyer, Michael Garten.\n\n" +
+                            "How to play: Cougars can move their paddles by pressing the up and down keys and Huskies can move theirs by pressing W and S.\n\n" +
+                            "Objective: Players use the paddles to hit a ball back and forth to gain points. First to eleven points win.\n\n" +
+                            "Networking: Host, press the host radio button then start. Wait for clients to connect. " +
+                            "Client, press the join radio button and enter the host's IP address. Then press start\n\n" +
+                            "Current network implementation is synchronous. May experience increased latency between host and client " +
+                            "when the response time is greater. \n\n" +
+                            "Asynchronous implementation still needs testing. Planned for a future release, specifically, after finals week.", "Apple Pong - Help", MessageBoxButton.OK);
         }
     }
 }

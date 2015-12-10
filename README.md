@@ -7,3 +7,6 @@ Contributors:
   Jomar Dimaculangan
   Josh Meyer
   Michael Garten
+  
+  Download: https://mathewmerrick.com/wsu/applepong/release 
+  

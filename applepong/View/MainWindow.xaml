@@ -18,7 +18,7 @@
             <!--Ball and Paddles -->
             <Image x:Name="ApplePongComponentUWPng" Height="400" Canvas.Left="80" Source="/App Resources/uw.png" Stretch="Fill" Canvas.Top="50" Width="400"/>
             <Image x:Name="ApplePongComponentWSUPng" Height="348" Canvas.Left="652" Source="/App Resources/wsu.png" Stretch="Fill" Canvas.Top="66" Width="348"/>
-            <Image x:Name="___applepong_component_apple_cup_png" Height="115" Canvas.Left="916" Source="/applepong;component/apple-cup.png" Stretch="Fill" Canvas.Top="512" Width="230"/>
+            <Image x:Name="ApplepongComponentAppleCupPng" Height="115" Canvas.Left="916" Source="/applepong;component/apple-cup.png" Stretch="Fill" Canvas.Top="512" Width="230"/>
 
             <Rectangle Name="LeftPaddle" Canvas.Left ="0" Canvas.Bottom ="{Binding leftPaddle.y}"  StrokeThickness="2" Stroke="#e2d2a3" Fill="#3b3e72" Height="140" Width="25"  VerticalAlignment="Center"></Rectangle>
             <Rectangle Name="RightPaddle" Canvas.Right ="0" Canvas.Bottom ="{Binding rightPaddle.y}" StrokeThickness="2" Stroke="#FFFFFF" Fill="#981e32" Height="140" Width="25"  VerticalAlignment="Center"></Rectangle>
@@ -37,11 +37,11 @@
 
 
             <!-- touch input -->
-            <Button x:Name="RightUp" Content="▲" Click="RightUp_OnClickButton_OnClick" Canvas.Right="-70" Canvas.Top="50" Width="50" Height="150" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
-            <Button x:Name="RightDown" Content="▼" Click="RightDown_OnClickButton_OnClick" Canvas.Right="-70" Canvas.Bottom="50" Width="50" Height="150" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
+            <Button x:Name="RightUp" Content="▲&#x0a; ↑" Click="RightUp_OnClickButton_OnClick" Canvas.Right="-70" Canvas.Top="50" Width="50" Height="150" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
+            <Button x:Name="RightDown" Content=" ↓&#x0a;▼" Click="RightDown_OnClickButton_OnClick" Canvas.Right="-70" Canvas.Bottom="50" Width="50" Height="150" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
 
-            <Button x:Name="LeftUp" Content="▲" Click="LeftUp_OnClickButton_OnClick" Canvas.Left="-70" Canvas.Top="50" Width="50" Height="150" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
-            <Button x:Name="LefttDown" Content="▼" Click="LeftDown_OnClickButton_OnClick" Canvas.Left="-70" Canvas.Bottom="50" Width="50" Height="150" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
+            <Button x:Name="LeftUp" Content="▲&#x0a;W" Click="LeftUp_OnClickButton_OnClick" Canvas.Left="-70" Canvas.Top="50" Width="50" Height="150" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
+            <Button x:Name="LefttDown" Content="S&#x0a;▼" Click="LeftDown_OnClickButton_OnClick" Canvas.Left="-70" Canvas.Bottom="50" Width="50" Height="150" FontSize="32" FontFamily="Agency FB" FontWeight="Bold" BorderThickness="0"/>
 
             <!-- TEST -->
 
@@ -81,11 +81,8 @@
                  FontSize="15"
                  FontWeight="Bold"
                  Text="{Binding ipAddress}"
-                 GotFocus="RemoteAddress_OnGotFocus"
-                 />
+                 GotFocus="RemoteAddress_OnGotFocus"/>
             
-
-
         </Canvas>
     </Border>
 

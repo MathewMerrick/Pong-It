@@ -7,7 +7,6 @@ using System.Text;
 namespace applepong.Model {
     public class SynchronousSocketClient : INotifyPropertyChanged {
 
-
         private Socket sender = new Socket(AddressFamily.InterNetwork,SocketType.Stream, ProtocolType.Tcp);
         private IPEndPoint remoteEP;
         private byte[] bytes;
@@ -21,7 +20,6 @@ namespace applepong.Model {
         public void StartClient(string userAddress) {
 
             bytes = new byte[1024];
-
 
             IPAddress ipAddress = IPAddress.Parse(userAddress);
 
@@ -93,21 +91,16 @@ namespace applepong.Model {
             }
         }
 
-
-
-
         public void Receive(int yPaddle, double xBall, double yBall) {
             _yPaddle = yPaddle;
             _xBall = xBall;
             _yBall = yBall;
         }
 
-
         public void StopClient() {
             sender.Shutdown(SocketShutdown.Both);
             sender.Close();
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string name) {
@@ -116,7 +109,5 @@ namespace applepong.Model {
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
-        
-
     }
 }

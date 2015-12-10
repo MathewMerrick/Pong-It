@@ -46,6 +46,5 @@ namespace applepong.Model {
             }
         }
         #endregion
-
     }
 }

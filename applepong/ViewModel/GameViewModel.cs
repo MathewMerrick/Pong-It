@@ -23,7 +23,7 @@ namespace applepong.ViewModel {
         private SynchronousSocketListener _server = new SynchronousSocketListener();
         private SynchronousSocketClient _client = new SynchronousSocketClient();
 
-        private Stopwatch stopwatch = new Stopwatch();
+        
 
         //Modes
         // 0 = Local
@@ -61,7 +61,7 @@ namespace applepong.ViewModel {
                 _server.StartListening();
 
             }
-            stopwatch.Start();
+            
             timer.Start();
             timer.Tick += (MovingBall);
         }
@@ -116,34 +116,23 @@ namespace applepong.ViewModel {
                     }
                 }
                 if (mode == 2) {
-                    //Server
-                   // while ((stopwatch.ElapsedMilliseconds%3) < 3) {
-                        
-                    //}
-                    //while ((stopwatch.ElapsedMilliseconds%3) < 3) {
+
                         _server.Send(rightPaddle.y, ball.x, ball.y, score.left, score.right);
                     leftPaddle.y = _server.yPaddle;
-                    // }
+
                 }
 
 
             }
             if (mode == 1) { //Client
-                //while ((stopwatch.ElapsedMilliseconds % 3) < 3) {
+
                     _client.Send(leftPaddle.y.ToString());
-                //}
-               // while ((stopwatch.ElapsedMilliseconds % 3) < 3) {
 
                 rightPaddle.y = _client.yPaddle;
                 ball.y = _client.yBall;
                 ball.x = _client.xBall;
                 score.left = _client.leftScore;
                 score.right = _client.rightScore;
-
-
-
-                //_client.Receive(rightPaddle.y, ball.x, ball.y);
-                // }
 
             }
             if (score.left == 11) {
@@ -153,8 +142,6 @@ namespace applepong.ViewModel {
             if (score.right == 11) {
                 GameReset();
             }
-
-
 
         }
 

@@ -9,18 +9,14 @@ namespace applepong.Model {
 
     public class SynchronousSocketListener : INotifyPropertyChanged {
 
-        private string data = null;
-
+        private string data;
         private Socket handler;
-
         private byte[] bytes;
-
         private int _yPaddle;
 
         public void StartListening() {
             bytes = new Byte[1024];
             
-
             IPHostEntry ipHostInfo = Dns.Resolve(Dns.GetHostName());
             IPAddress ipAddress = ipHostInfo.AddressList[0];
 
@@ -29,14 +25,11 @@ namespace applepong.Model {
             Socket listener = new Socket(AddressFamily.InterNetwork,
             SocketType.Stream, ProtocolType.Tcp);
 
-           
                 listener.Bind(localEndPoint);
                 listener.Listen(10);
                 handler = listener.Accept();
                 data = null;
-                // Start listening for connections.
-
-
+                
         }
 
         public void Send(int yPaddle, double xBall, double yBall, int leftScore, int rightScore) {
@@ -59,7 +52,6 @@ namespace applepong.Model {
             data = data.Replace(";", "");
             _yPaddle = Int32.Parse(data);
         }
-
 
         public void StopServer() {
             handler.Shutdown(SocketShutdown.Both);

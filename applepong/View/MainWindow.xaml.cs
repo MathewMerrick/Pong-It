@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.ComponentModel;
-using System.Linq.Expressions;
 using applepong.ViewModel;
 
 
@@ -122,7 +110,7 @@ namespace applepong.View {
                             "Client, press the join radio button and enter the host's IP address. Then press start\n\n" +
                             "Current network implementation is synchronous. May experience increased latency between host and client " +
                             "when the response time is greater. \n\n" +
-                            "Asynchronous implementation still needs testing. Planned for a future release, specifically, after finals week.", "Apple Pong - Help", MessageBoxButton.OK);
+                            "Asynchronous implementation still needs testing. May or may not actually happen.", "Apple Pong - Help", MessageBoxButton.OK);
         }
     }
 }
